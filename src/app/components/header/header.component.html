@@ -1,0 +1,95 @@
+<div class="header h-auto flex align-center justify-between gap-8 bg-transparent backdrop-blur-md border-b border-gray-200/20 px-6 py-4 sticky top-0 z-50" data-aos="fade-down">
+
+    <div class="w-[80%] lg:w-fit flex align-center justify-center">
+        
+        <div class="logo-name-container">
+            <a href="/" class="flex items-center">
+                <img 
+                    [src]="assetPaths.PROFILE_PIC" 
+                    [alt]="appData.logoName"
+                    class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span style="display: none;"> &lt;</span>
+                  <span class="logo-name" style="display: none;">
+                    {{ appData.logoName }}
+                  </span>
+                  <span style="display: none;">/&gt;</span>
+            </a>
+        </div>
+        
+    </div>
+
+    <button 
+            class="block lg:hidden p-3 hover:bg-gray-100/50 rounded-lg transition-colors backdrop-blur-sm"
+            type="button"
+            (click)="toggleNavbar()">
+            <i class="text-2xl fa-solid fa-bars text-gray-700"></i>
+    </button>
+
+    <div class="hidden lg:block grow">
+        <ul class="menu flex gap-8 justify-end items-center text-lg font-medium text-gray-700">
+            @for (l of linksData; track $index) {
+                @if (l.isVisible) {
+                    <li>
+                        @if (l.isExternalLink) {
+                            <a 
+                                [href]="l.routeURLName" 
+                                target="_blank"
+                                [routerLinkActive]="['font-bold']"
+                                [routerLinkActiveOptions]="{exact: true}" 
+                                [title]="l.routeTooltipValue ?? l.routeLinkText"
+                                >
+                                {{ l.routeLinkText }}
+                            </a>
+                        }
+                        @else {
+                            <a 
+                                [routerLink]="l.routeURLName" 
+                                [routerLinkActive]="['font-bold']"
+                                [routerLinkActiveOptions]="{exact: true}" 
+                                [title]="l.routeTooltipValue ?? l.routeLinkText"
+                                >
+                                {{ l.routeLinkText }}
+                            </a>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    
+
+
+</div>
+
+@if (navbarOpen) {
+    <div [@menuOpenCloseHeightAnimation] class="block lg:hidden">
+        <ul class="menu small">
+            @for (l of linksData; track $index) {
+                @if (l.isVisible) {
+                    <li>
+                        @if (l.isExternalLink) {
+                            <a 
+                            [href]="l.routeURLName" 
+                            target="_blank"
+                            [routerLinkActive]="['font-bold']"
+                            [routerLinkActiveOptions]="{exact: true}" 
+                            [title]="l.routeTooltipValue ?? l.routeLinkText"
+                            >{{ l.routeLinkText }}</a>
+                        }
+                        @else {
+                            <a 
+                            [routerLink]="l.routeURLName" 
+                            [routerLinkActive]="['font-bold']"
+                            [routerLinkActiveOptions]="{exact: true}" 
+                            [title]="l.routeTooltipValue ?? l.routeLinkText"
+                            >{{ l.routeLinkText }}</a>
+                        }
+                    </li>
+                }
+            }
+            
+        </ul>
+    </div>
+}

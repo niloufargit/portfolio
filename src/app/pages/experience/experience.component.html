@@ -1,0 +1,34 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+                {{ appConfig.experiencePageTitle }}
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                {{ appConfig.experiencePageDescription }}
+            </p>
+        </div>
+
+    @for (exps of appConfig.experienceSections; track $index) {
+
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                {{ exps.experienceSectionTitle }}
+            </h2>
+            <p class="text-lg text-gray-600">
+                {{ exps.experienceSectionSubtitle }}
+            </p>
+        </div>
+
+        <div class="space-y-8 mb-16">
+
+            @for (exp of exps.experiences; track $index) {
+                <app-experience-card [experience]="exp" class="w-full"></app-experience-card>
+            }
+
+        </div>
+
+    }
+
+    </div>
+</div>

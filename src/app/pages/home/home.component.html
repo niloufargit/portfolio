@@ -1,0 +1,51 @@
+@if (!isAnimationPlayed && appConfig.loaderSplashAnimation) {
+    <app-splash></app-splash>
+}
+
+@else {
+
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50" id="greeting">
+        <div class="w-full">
+
+            <div class="greeting-text-div max-w-4xl mx-auto text-center px-6" data-aos="fade-right">
+                <div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-800 mb-4 leading-tight">
+                        {{ appConfig.name }}
+                    </h1>
+                    
+                    <h2 class="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-blue-600 mb-6">
+                        {{ appConfig.professionalTitle }}
+                    </h2>
+                    
+                    <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                        {{ appConfig.professionalSummary }}
+                    </p>
+
+                    <div class="flex gap-6 flex-wrap justify-center">
+                        <a
+                            class="px-8 py-4 bg-blue-600 text-white text-lg md:text-xl font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=niloufarbayatpro@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
+                            Me contacter
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a
+                            class="px-8 py-4 bg-gray-800 text-white text-lg md:text-xl font-semibold rounded-lg hover:bg-gray-900 transition-colors duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
+                            href="https://www.linkedin.com/in/niloufar-bayat"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >
+                            LinkedIn
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}

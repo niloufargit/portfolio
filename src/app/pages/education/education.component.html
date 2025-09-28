@@ -1,0 +1,22 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+                {{ appConfig.educationPageTitle }}
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                {{ appConfig.educationPageDescription }}
+            </p>
+        </div>
+
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mes Formations</h2>
+        </div>
+
+        <div class="space-y-8">
+            @for (edu of appConfig.educationSections; track $index) {
+                <app-education-item [education]="edu" class="w-full"></app-education-item>
+            }
+        </div>
+    </div>
+</div>
